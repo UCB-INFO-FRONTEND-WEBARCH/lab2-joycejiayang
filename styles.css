@@ -76,6 +76,53 @@ body {
   margin: 24px auto;
 }
 
+#dark-mode-toggle {
+  display: none;
+}
+
+#dark-mode-label {
+  display: inline-block;
+  padding: 8px 10px;
+  text-decoration: none;
+  color: #444;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#dark-mode-label:hover {
+  background: #f2f6ff;
+  color: #0a58ca;
+}
+
+body:has(#dark-mode-toggle:checked) {
+  background-color: #222;
+  color: #f2f6ff;
+}
+
+body:has(#dark-mode-toggle:checked) .site-header {
+  background-color: #222;
+}
+
+body:has(#dark-mode-toggle:checked) .brand {
+  color: #3d83eb;
+}
+
+body:has(#dark-mode-toggle:checked) .nav a {
+  color: #f2f6ff;
+}
+
+body:has(#dark-mode-toggle:checked) .nav a:hover {
+  background: rgba(10, 88, 202, 0.5); /* #0a58ca at 50% opacity */
+}
+
+body:has(#dark-mode-toggle:checked) #dark-mode-label {
+  color: #f2f6ff;
+}
+
+body:has(#dark-mode-toggle:checked) #dark-mode-label:hover {
+  background: rgba(10, 88, 202, 0.5); /* #0a58ca at 50% opacity */
+}
+
 @media (max-width: 720px) {
 
   /* GUIDE 1: hide the horizontal nav by default on small screens */
@@ -95,17 +142,47 @@ body {
     /* GUIDE 4: style nav as vertical panel */
     /* 4-1) How the link inside of nav should be displayed? */  
     /* 4-2) Where the nav should be positioned? */
-    flex-direction: column;
     background-color: white;
     position: absolute;
     top: 55px;
     left: 0;
     width: 100%;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   }   
 
   .nav a {
     width: 100%;
+    border-radius: 0;
+  }
+
+  .nav #dark-mode-label {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  body:has(#dark-mode-toggle:checked) .nav {
+    background-color: #222;
+    box-shadow: 0 10px 10px rgba(10, 88, 202, 0.1); /* #0a58ca at 10% opacity */
+  }
+
+  body:has(#dark-mode-toggle:checked) .nav a {
+    color: #f2f6ff;
+  }
+
+  body:has(#dark-mode-toggle:checked) .nav a:hover {
+    background: rgba(10, 88, 202, 0.5); /* #0a58ca at 50% opacity */
+  }
+
+  body:has(#dark-mode-toggle:checked) #dark-mode-label {
+    color: #f2f6ff;
+  }
+
+  body:has(#dark-mode-toggle:checked) #dark-mode-label:hover {
+    background: rgba(10, 88, 202, 0.5); /* #0a58ca at 50% opacity */
+  }
+
+  body:has(#dark-mode-toggle:checked) .hamburger span {
+    background: #f2f6ff;
   }
 }
 
